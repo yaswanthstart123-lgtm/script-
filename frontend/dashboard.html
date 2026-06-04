@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureHub - Dashboard</title>
+    <!-- Use Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar glass">
+        <div class="nav-brand">SecureHub</div>
+        <div class="nav-links">
+            <span id="user-display">Welcome, User</span>
+            <button onclick="logout()" class="btn secondary-btn small">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Student Details Section -->
+        <section class="student-details glass section-card">
+            <h2>My Profile</h2>
+            <div id="profile-display" class="hidden">
+                <p><strong>Name:</strong> <span id="disp-name"></span></p>
+                <p><strong>Department:</strong> <span id="disp-dept"></span></p>
+                <p><strong>Section:</strong> <span id="disp-sec"></span></p>
+                <button onclick="editProfile()" class="btn secondary-btn">Edit Profile</button>
+            </div>
+            
+            <form id="profile-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prof-name">Full Name</label>
+                        <input type="text" id="prof-name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-dept">Department</label>
+                        <select id="prof-dept" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="CIVIL">CIVIL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-sec">Section</label>
+                        <select id="prof-sec" required>
+                            <option value="">Select Section</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="profile-msg" class="msg"></div>
+                <button type="submit" class="btn primary-btn" id="profile-submit-btn">Save Profile</button>
+                <button type="button" class="btn secondary-btn hidden" id="profile-cancel-btn" onclick="cancelEdit()">Cancel</button>
+            </form>
+        </section>
+
+        <!-- Two column layout for Quizzes and Results -->
+        <div class="dashboard-grid">
+            <section class="quiz-list glass section-card">
+                <h2>Available Quizzes</h2>
+                <div id="quizzes-container" class="card-list">
+                    <!-- Quizzes will be injected here -->
+                    <div class="loader">Loading quizzes...</div>
+                </div>
+            </section>
+
+            <section class="results-list glass section-card">
+                <h2>My Results</h2>
+                <div id="results-container" class="card-list">
+                    <!-- Results will be injected here -->
+                    <div class="loader">Loading results...</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureHub - Quiz</title>
+    <!-- Use Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="quiz-page">
+    <nav class="navbar glass">
+        <div class="nav-brand"><a href="dashboard.html" style="text-decoration:none; color:inherit;">SecureHub Dashboard</a></div>
+        <div id="quiz-header-info" class="nav-links">
+            <span class="timer">Time Active: <span id="timer-display">00:00</span></span>
+        </div>
+    </nav>
+
+    <div class="quiz-container glass mode-quiz">
+        <div id="quiz-intro">
+            <h1 id="quiz-title">Loading Quiz...</h1>
+            <p id="quiz-desc"></p>
+            <button id="start-btn" class="btn primary-btn large hidden" onclick="startQuiz()">Start Quiz</button>
+            <div id="quiz-load-error" class="error-msg"></div>
+        </div>
+
+        <div id="quiz-active" class="hidden">
+            <form id="quiz-form">
+                <div id="questions-container">
+                    <!-- Questions injected here -->
+                </div>
+                <div class="quiz-actions">
+                    <button type="submit" class="btn primary-btn large">Submit Answers</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="quiz-result" class="hidden text-center">
+            <h2>Quiz Completed!</h2>
+            <div class="score-card glass">
+                <h3 id="result-score" class="mega-text">0/0</h3>
+                <p id="result-percentage" class="sub-text">0%</p>
+                <p class="grade" id="result-grade"></p>
+            </div>
+            <a href="dashboard.html" class="btn primary-btn">Return to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
